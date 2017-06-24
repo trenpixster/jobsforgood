@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :seekers, path: 'seekers', controllers: {
-    passwords:     'seekers/passwords',
-    registrations: 'seekers/registrations',
-    sessions:      'seekers/sessions',
+
+  devise_for :associations, path: 'associations', controllers: {
+    passwords:     'associations/passwords',
+    registrations: 'associations/registrations',
+    sessions:      'associations/sessions',
   }
 
   devise_for :companies, path: 'companies', controllers: {

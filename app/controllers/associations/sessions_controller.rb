@@ -1,4 +1,4 @@
-class Seekers::SessionsController < Devise::SessionsController
+class Associations::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

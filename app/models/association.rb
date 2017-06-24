@@ -1,4 +1,4 @@
-class Company < ApplicationRecord
+class Association < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 end
