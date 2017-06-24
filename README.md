@@ -1,24 +1,10 @@
-# README
+# Jobs For Good
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODO
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] companies can create jobs
+- [ ] companies can add skills for jobs
+- [ ] associations can create seekers
+- [ ] associations can add skills for seekers
+- [ ] make it look good
+- [ ] translate everything
