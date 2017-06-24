@@ -33,6 +33,6 @@ class SeekersController < ApplicationController
   private
 
   def seekers_params
-    params.require(:seeker).permit(:name, :country, :city)
+    params.require(:seeker).permit(:name, :country, :city, :tag_list)
   end
 end

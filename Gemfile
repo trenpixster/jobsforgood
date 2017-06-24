@@ -34,6 +34,8 @@ gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.10.1'
 
 gem 'devise', '~> 4.3'
 
+gem 'acts-as-taggable-on', '~> 5.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
