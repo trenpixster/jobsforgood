@@ -2,9 +2,10 @@ version: '3'
 
 services:
   dev:
+    build: .
+    image: jobs4good:${DOCKER_TAG:-latest}
     depends_on:
       - postgres
-    image: ruby:2.3.3
     volumes:
       - .:/usr/src/app
       - bundler-cache:/usr/local/bundle
