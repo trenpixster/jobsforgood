@@ -1,8 +1,12 @@
 <%= link_to 'log out', destroy_company_session_path, method: :delete %><br>
-<br>
-<%= current_company.inspect %><br>
-<%= link_to 'edit', edit_company_registration_path %> <br>
-<br>
+<h1><%= current_company.name %></h1>
+<%= image_tag current_company.logo_url %>
+<p><%= link_to current_company.url, current_company.url %></p>
+<p><%= current_company.description %></p>
+<p>Email: <%= current_company.email %></p>
+<p>Phone: <%= current_company.phone %></p>
+<p>Code: <%= current_company.code %></p>
+<p><%= link_to 'edit', edit_company_registration_path %></p>
 
 Jobs:<br>
 <ul>

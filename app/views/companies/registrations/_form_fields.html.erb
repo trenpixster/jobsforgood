@@ -1,21 +1,26 @@
 <div class="fields">
-    <div class="eight wide required field">
-        <%= f.label      :name %>
-        <%= f.text_field :name, autofocus: true %>
-    </div>
+  <div class="eight wide required field">
+    <%= f.label      :name %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
 
-    <div class="eight wide required field">
-        <%= f.label      :phone %>
-        <%= f.text_field :phone %>
-    </div>
+  <div class="eight wide required field">
+    <%= f.label      :phone %>
+    <%= f.text_field :phone %>
+  </div>
 </div>
 
 <div class="field">
-    <%= f.label      :url %>
-    <%= f.text_field :url %>
+  <%= f.label      :url %>
+  <%= f.text_field :url %>
 </div>
 
 <div class="field">
-    <%= f.label     :description %>
-    <%= f.text_area :description %>
+  <%= f.label      :logo_url %>
+  <%= f.text_field :logo_url %>
+</div>
+
+<div class="field">
+  <%= f.label     :description %>
+  <%= f.text_area :description %>
 </div>
