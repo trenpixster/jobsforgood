@@ -10,7 +10,7 @@ services:
       - .:/usr/src/app
       - bundler-cache:/usr/local/bundle
     working_dir: /usr/src/app
-    command: bash
+    command: bundle exec rails s
 
   postgres:
     image: postgres
