@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  app_name: "Jobs for Good!"
+  select_language: "Select your preferred language"
+  job_seeker: "Job Seeker"
+  job_seeker_description: "Sign in or register to apply for jobs and see jobs listing"
+  employer: "Employer"
+  employer_description: "Sign in or register to place job opportunities"
+  sign_in: "Sign in"
+  sign_up: "Register"
