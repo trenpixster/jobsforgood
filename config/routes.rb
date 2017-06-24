@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     sessions:      'companies/sessions',
   }
 
+  resource :company, :association, only: [:show]
+
   root to: 'pages#index'
 end
