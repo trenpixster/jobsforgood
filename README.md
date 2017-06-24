@@ -7,4 +7,3 @@
 - [ ] associations can create seekers
 - [ ] associations can add skills for seekers
 - [ ] make it look good
-- [ ] translate everything
