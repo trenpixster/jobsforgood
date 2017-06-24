@@ -1,6 +1,16 @@
 version: '3'
 
 services:
+  dev:
+    depends_on:
+      - postgres
+    image: ruby:2.3.3
+    volumes:
+      - .:/usr/src/app
+      - bundler-cache:/usr/local/bundle/cache
+    working_dir: /usr/src/app
+    command: bash
+
   postgres:
     image: postgres
     environment:
@@ -11,6 +21,9 @@ services:
       default:
         aliases:
           - postgres.local
+
+volumes:
+  bundler-cache:
 
 networks:
   default:
