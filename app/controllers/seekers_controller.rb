@@ -10,7 +10,7 @@ class SeekersController < ApplicationController
   def create
     @seeker = current_institution.seekers.build(seekers_params)
     if @seeker.save
-      redirect_to @seeker
+      redirect_to institution_seeker_path(@seeker)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class SeekersController < ApplicationController
   def update
     @seeker = current_institution.seekers.find(params[:id])
     @seeker.update!(seekers_params)
-    redirect_to @seeker
+    redirect_to institution_seeker_path(@seeker)
   end
 
   private

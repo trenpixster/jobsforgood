@@ -1,0 +1,5 @@
+<h2>Edit job seeker</h2>
+
+<%= form_for @seeker, url: institution_seeker_path(@seeker) do |f| %>
+  <%= render 'fields', f: f %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624214133) do
+ActiveRecord::Schema.define(version: 20170624223131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,16 +70,6 @@ ActiveRecord::Schema.define(version: 20170624214133) do
   create_table "seekers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
     t.string "name", default: "", null: false
     t.string "phone", default: "", null: false
     t.string "country", default: "", null: false
@@ -87,9 +77,7 @@ ActiveRecord::Schema.define(version: 20170624214133) do
     t.string "language", default: "", null: false
     t.datetime "has_permit"
     t.bigint "institution_id"
-    t.index ["email"], name: "index_seekers_on_email", unique: true
     t.index ["institution_id"], name: "index_seekers_on_institution_id"
-    t.index ["reset_password_token"], name: "index_seekers_on_reset_password_token", unique: true
   end
 
   add_foreign_key "jobs", "companies"

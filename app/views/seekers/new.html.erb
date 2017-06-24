@@ -1,0 +1,5 @@
+<h2>Create new job seeker for <%= current_institution.name %></h2>
+
+<%= form_for @seeker, url: institution_seekers_path do |f| %>
+  <%= render 'fields', f: f %>
+<% end %>

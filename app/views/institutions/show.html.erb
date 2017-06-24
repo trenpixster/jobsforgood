@@ -7,8 +7,8 @@
 Job seekers:<br>
 <ul>
   <% current_institution.seekers.each do |seeker| %>
-    <li><%= link_to seeker.name, seeker %></li>
+    <li><%= link_to seeker.name, institution_seeker_path(seeker) %></li>
   <% end %>
 </ul>
 <br>
-<%= link_to '+ seeker', new_seeker_path %>
+<%= link_to '+ seeker', new_institution_seeker_path %>

@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     sessions:      'institutions/sessions',
   }
 
-  resource :institution, only: [:show]
-
-  resources :institutions do
+  resource :institution, only: [:show] do
     resources :seekers
   end
 
