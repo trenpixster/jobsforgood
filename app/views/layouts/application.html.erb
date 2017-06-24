@@ -31,21 +31,36 @@
 
         <div class="ui fixed inverted menu">
             <div class="ui container">
-                <a href="#" class="header item">
+                <a href="/" class="header item">
                     Jobs for Good
                 </a>
-                <a href="#" class="item">Home</a>
+                <a href="/" class="item">Home</a>
                 <div class="right item">
-                    <a class="ui inverted button">Resettlement Agencies Sign In</a>
-                    <a class="ui inverted button" style="margin-left: 0.5em;">Companies Sign In</a>
+                    <a href="<%= new_institution_session_path %>" class="ui inverted button">Institutions Sign In</a>
+                    <a href="<%= new_company_session_path %>" class="ui inverted button" style="margin-left: 0.5em;">Companies Sign In</a>
                 </div>
             </div>
         </div>
 
 
         <div class="ui main container">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
+            <% if notice %>
+                <div class="ui info message">
+                    <i class="close icon"></i>
+                    <div class="header">
+                        <%= notice %>
+                    </div>
+                </div>
+            <% end %>
+
+            <% if alert %>
+                <div class="ui negative message">
+                    <i class="close icon"></i>
+                    <div class="header">
+                        <%= alert %>
+                    </div>
+                </div>
+            <% end %>
 
             <%= yield %>
         </div>

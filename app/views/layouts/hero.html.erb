@@ -143,10 +143,10 @@
                         <a class="toc item">
                             <i class="sidebar icon"></i>
                         </a>
-                        <a class="active item">Home</a>
+                        <a href="/" class="active item">Home</a>
                         <div class="right item">
-                            <a class="ui inverted button">Resettlement Agencies Sign In</a>
-                            <a class="ui inverted button">Companies Sign In</a>
+                            <a href="<%= new_institution_session_path %>" class="ui inverted button">Institutions Sign In</a>
+                            <a href="<%= new_company_session_path %>" class="ui inverted button" style="margin-left: 0.5em;">Companies Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                         Jobs for Good
                     </h1>
                     <h2>Reach out to thousands of migrants. Post your job today.</h2>
-                    <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+                    <a href="<%= new_company_session_path %>"><div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div></a>
                 </div>
 
             </div>
