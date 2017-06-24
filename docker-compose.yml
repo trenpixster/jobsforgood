@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=dbsecret
+      - POSTGRES_USER=dbuser
+      - POSTGRES_DB=jobs4good
+    networks:
+      default:
+        aliases:
+          - postgres.local
+
+networks:
+  default:
