@@ -19,6 +19,16 @@
     <%= f.text_field :city, value: 'Lisbon' %>
   </div>
 
+  <div class="field">
+    <%= f.label      :language_list %><br />
+    <%= f.text_field :language_list, value: f.object.language_list.to_s %>
+  </div>
+
+  <div class="field">
+    <%= f.label      :skill_list %><br />
+    <%= f.text_field :skill_list, value: f.object.skill_list.to_s %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

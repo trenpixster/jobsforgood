@@ -1,5 +1,19 @@
-<%= @job.inspect %>
-<br>
+<h1><%= @job.title %></h1>
+<p><%= @job.company.name %> - <%= @job.city %>, <%= @job.country %></p>
+<p><%= @job.description %></p>
+<p>Posted <%= time_ago_in_words @job.created_at %></p>
+<p>
+  Languages:
+  <% @job.language_list.each do |lang| %>
+    <span class="tag"><%= lang %></span>
+  <% end %>
+</p>
+<p>
+  Skills: <% @job.skill_list.each do |skill| %>
+    <span class="tag"><%= skill %></span>
+  <% end %>
+</p>
+
 <%= link_to "edit", edit_job_path %><br>
 <%= link_to "all jobs by #{@job.company.name}", company_jobs_path(@job.company) %><br>
 <%= link_to "all jobs", jobs_path %>
