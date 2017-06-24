@@ -1,0 +1,5 @@
+<%= @job.inspect %>
+<br>
+<%= link_to "edit", edit_job_path %><br>
+<%= link_to "all jobs by #{@job.company.name}", company_jobs_path(@job.company) %><br>
+<%= link_to "all jobs", jobs_path %>

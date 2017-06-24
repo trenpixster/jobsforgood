@@ -1,3 +1,14 @@
+<%= link_to 'log out', destroy_company_session_path, method: :delete %><br>
+<br>
 <%= current_company.inspect %><br>
 <%= link_to 'edit', edit_company_registration_path %> <br>
-<%= link_to 'log out', destroy_company_session_path, method: :delete %>
+<br>
+
+Jobs:<br>
+<ul>
+  <% current_company.jobs.each do |job| %>
+    <li><%= link_to job.title, job %></li>
+  <% end %>
+</ul>
+<br>
+<%= link_to '+ job', new_job_path %>
