@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.10.1'
 
+gem 'devise', '~> 4.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
