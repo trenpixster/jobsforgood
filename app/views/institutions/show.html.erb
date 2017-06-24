@@ -1,0 +1,14 @@
+<%= link_to 'log out', destroy_institution_session_path, method: :delete %> <br>
+<br>
+<%= current_institution.inspect %><br>
+<br>
+<%= link_to 'edit', edit_institution_registration_path %> <br>
+
+Job seekers:<br>
+<ul>
+  <% current_institution.seekers.each do |seeker| %>
+    <li><%= link_to seeker.name, seeker %></li>
+  <% end %>
+</ul>
+<br>
+<%= link_to '+ seeker', new_seeker_path %>

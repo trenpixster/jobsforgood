@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :associations, path: 'associations', controllers: {
-    passwords:     'associations/passwords',
-    registrations: 'associations/registrations',
-    sessions:      'associations/sessions',
+  devise_for :institutions, path: 'institutions', controllers: {
+    passwords:     'institutions/passwords',
+    registrations: 'institutions/registrations',
+    sessions:      'institutions/sessions',
   }
 
-  resource :association, only: [:show]
+  resource :institution, only: [:show]
+
+  resources :institutions do
+    resources :seekers
+  end
 
   devise_for :companies, path: 'companies', controllers: {
     passwords:     'companies/passwords',

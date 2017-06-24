@@ -1,0 +1,43 @@
+<div class="ui huge header">
+  <h1><%= t 'app_name' %></h1>
+</div>
+<div class="ui one column grid container">
+  <div class="column">
+    <%= t 'select_language' %>
+  </div>
+  <div class="row ui buttons" >
+    <div class="ui button"> Arabic </br><i class="sy flag"></i></div>
+    <div class="ui button"> Portuguese </br><i class="pt flag"></i></div>
+    <div class="ui button"> Tigrinya </br><i class="er flag"></i></div>
+    <div class="ui button active"> English </br><i class="us flag"></i></div>
+  </div>
+</div>
+<h3></h3>
+<div class="ui stripe community vertical segment container">
+  <div class="ui two column center aligned divided relaxed stackable grid container">
+    <div class="row">
+      <div class="column">
+        <h2 class="ui icon header">
+          <i class="street view icon"></i>
+          <%= t 'institution' %>
+        </h2>
+        <p> <%= t 'institution_description' %> </p>
+        <div class="ui primary view-ui large button">
+          <%= link_to t('sign_in'), new_institution_session_path %>
+        </div>
+        <%= link_to t('sign_up'), new_institution_registration_path %>
+      </div>
+      <div class="column">
+        <h2 class="ui icon header">
+          <i class="outline building icon"></i>
+          <%= t 'employer' %>
+        </h2>
+        <p> <%= t 'employer_description' %> </p>
+        <div class="ui primary view-ui large button">
+          <%= link_to t('sign_in'), new_company_session_path %>
+        </div>
+        <%= link_to t('sign_up'), new_company_registration_path %>
+      </div>
+    </div>
+  </div>
+</div>
