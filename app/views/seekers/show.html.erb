@@ -1,5 +1,18 @@
 <h1><%= @seeker.name %></h1>
 <p><%= @seeker.city %>, <%= @seeker.country %></p>
 <p>Phone: <%= @seeker.phone %></p>
+
+<p>
+  Languages:
+  <% @seeker.language_list.each do |lang| %>
+    <span class="tag"><%= lang %></span>
+  <% end %>
+</p>
+<p>
+  Skills: <% @seeker.skill_list.each do |skill| %>
+    <span class="tag"><%= skill %></span>
+  <% end %>
+</p>
+
 <%= link_to "edit", edit_institution_seeker_path(@seeker) %><br>
 <%= link_to "back", institution_path %>
