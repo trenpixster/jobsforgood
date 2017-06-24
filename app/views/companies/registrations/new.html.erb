@@ -1,26 +1,42 @@
-<h2>Sign up</h2>
+<div class="ui container segment fluid">
+    <h2>Company sign up</h2>
+    <p>
+        Sign up your company today to benefit from countless perks.
+    </p>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="ui container segment fluid">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'ui large form'}) do |f| %>
+        <%= devise_error_messages! %>
 
-  <%= render 'form_fields', f: f %>
+        <h4 class="ui dividing header">Company Information</h4>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <%= render 'form_fields', f: f %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+        <h4 class="ui dividing header">Login Information</h4>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="required field">
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+        </div>
 
-<%= render "devise/shared/links" %>
+        <div class="required field">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="required field">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="required field">
+            <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <label>I agree to the Terms and Conditions</label>
+            </div>
+        </div>
+
+        <%= f.submit "Sign up", class: 'ui button' %>
+    <% end %>
+</div>

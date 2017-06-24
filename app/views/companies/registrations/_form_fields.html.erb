@@ -1,34 +1,21 @@
-<div class="field">
-  <%= f.label      :name %><br />
-  <%= f.text_field :name, autofocus: true %>
+<div class="fields">
+    <div class="eight wide required field">
+        <%= f.label      :name %>
+        <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="eight wide required field">
+        <%= f.label      :phone %>
+        <%= f.text_field :phone %>
+    </div>
 </div>
 
 <div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email %>
+    <%= f.label      :url %>
+    <%= f.text_field :url %>
 </div>
 
 <div class="field">
-  <%= f.label      :phone %><br />
-  <%= f.text_field :phone %>
-</div>
-
-<div class="field">
-  <%= f.label      :code %><br />
-  <%= f.text_field :code %>
-</div>
-
-<div class="field">
-  <%= f.label      :url %><br />
-  <%= f.text_field :url %>
-</div>
-
-<div class="field">
-  <%= f.label      :logo_url %><br />
-  <%= f.text_field :logo_url %>
-</div>
-
-<div class="field">
-  <%= f.label      :description %><br />
-  <%= f.text_field :description %>
+    <%= f.label     :description %>
+    <%= f.text_area :description %>
 </div>
