@@ -15,7 +15,16 @@
              margin-right: 1.5em;
          }
          .main.container {
+             <% if content_for? :title %>
+             margin-top: 2em;
+             <% else %>
              margin-top: 7em;
+             <% end %>
+         }
+         .title.container {
+             margin-top: 3.5em;
+             background-color: #FFFFFF;
+             padding: 2em 0;
          }
          .wireframe {
              margin-top: 2em;
@@ -52,27 +61,36 @@
             </div>
         </div>
 
-
-        <div class="ui main container">
-            <% if notice %>
-                <div class="ui info message">
-                    <i class="close icon"></i>
-                    <div class="header">
-                        <%= notice %>
-                    </div>
+        <div class="ui fluid container">
+            <% if content_for? :title %>
+            <div class="ui title fluid container">
+                <div class="ui container">
+                    <%= yield :title %>
                 </div>
+            </div>
             <% end %>
 
-            <% if alert %>
-                <div class="ui negative message">
-                    <i class="close icon"></i>
-                    <div class="header">
-                        <%= alert %>
+            <div class="ui main container">
+                <% if notice %>
+                    <div class="ui info message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            <%= notice %>
+                        </div>
                     </div>
-                </div>
-            <% end %>
+                <% end %>
 
-            <%= yield %>
+                <% if alert %>
+                    <div class="ui negative message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            <%= alert %>
+                        </div>
+                    </div>
+                <% end %>
+
+                <%= yield %>
+            </div>
         </div>
 
         <div class="ui inverted vertical footer segment">

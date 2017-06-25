@@ -1,15 +1,41 @@
-<h1><%= current_company.name %></h1>
-<%= image_tag current_company.logo_url, height: 140 %>
-<p><%= link_to current_company.url, current_company.url %></p>
-<p><%= current_company.description %></p>
-<p>Email: <%= current_company.email %></p>
-<p>Phone: <%= current_company.phone %></p>
-<p>Code: <%= current_company.code %></p>
-<p><%= link_to 'edit', edit_company_registration_path %></p>
+<% content_for :title do  %>
+    <h1 class="ui header">
+        <%= current_company.name %>
+        <div class="sub header">
+            Company profile and available job postings
+        </div>
+    </h1>
+<% end %>
 
-Jobs:<br>
-<ul>
-  <% current_company.jobs.each do |job| %>
-    <li><%= link_to job.title, job %></li>
-  <% end %>
-</ul>
+<div class="ui grid">
+    <div class="ui four wide column">
+        <div class="ui segment">
+            <h2>Company info</h2>
+            <%= image_tag current_company.logo_url %>
+            <p><%= link_to current_company.url, current_company.url %></p>
+            <p><%= current_company.description %></p>
+            <p>Email: <%= current_company.email %></p>
+            <p>Phone: <%= current_company.phone %></p>
+            <p>Code: <%= current_company.code %></p>
+            <p><%= link_to 'edit', edit_company_registration_path %></p>
+        </div>
+    </div>
+
+    <div class="ui twelve wide column">
+        <div class="ui segment">
+            <h2>Jobs</h2>
+            <% if current_company.jobs.empty? %>
+                <p>
+                    No active job postings.
+                </p>
+            <% else %>
+                <ul>
+                    <% current_company.jobs.each do |job| %>
+                        <li><%= link_to job.title, job %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+            <%= link_to 'Add a job', new_job_path, class: 'ui button primary' %>
+        </div>
+    </div>
+</div>

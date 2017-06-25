@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
     flash[:error] = 'Must be logged in as an institution to access this section.'
     redirect_to :root unless institution_signed_in?
   end
+
+  protected
+  def signed_in?
+    company_signed_in? or institution_signed_in?
+  end
 end
