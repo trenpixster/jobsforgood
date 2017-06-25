@@ -151,6 +151,24 @@
                     </div>
                 </div>
 
+                <% if notice %>
+                    <div class="ui info message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            <%= notice %>
+                        </div>
+                    </div>
+                <% end %>
+
+                <% if alert %>
+                    <div class="ui negative message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            <%= alert %>
+                        </div>
+                    </div>
+                <% end %>
+
                 <div class="ui text container">
                     <h1 class="ui inverted header">
                         Jobs for Good
