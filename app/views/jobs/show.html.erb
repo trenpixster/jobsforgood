@@ -15,12 +15,12 @@
     <p>
         Languages:
         <% @job.language_list.each do |lang| %>
-            <span class="tag"><%= lang %></span>
+            <span class="ui label red"><%= lang %></span>
         <% end %>
     </p>
     <p>
         Skills: <% @job.skill_list.each do |skill| %>
-        <span class="tag"><%= skill %></span>
+        <span class="ui label blue"><%= skill %></span>
         <% end %>
     </p>
 
