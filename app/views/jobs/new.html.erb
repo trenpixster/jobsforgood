@@ -1,3 +1,10 @@
-<h2>New Job at <%= current_company.name %></h2>
+<% content_for :title do  %>
+    <h1 class="ui header">
+        New Job at <%= current_company.name %>
+        <div class="sub header">
+            Create a new job posting
+        </div>
+    </h1>
+<% end %>
 
 <%= render 'form' %>

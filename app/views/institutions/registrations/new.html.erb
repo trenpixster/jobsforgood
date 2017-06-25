@@ -1,9 +1,11 @@
-<div class="ui container segment fluid">
-    <h2>Institution sign up</h2>
-    <p>
-        Sign up today to find job postings.
-    </p>
-</div>
+<% content_for :title do  %>
+    <h1 class="ui header">
+        Institution sign up
+        <div class="sub header">
+            Sign up today to find job postings.
+        </div>
+    </h1>
+<% end %>
 
 <div class="ui container segment fluid">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'ui large form'}) do |f| %>
