@@ -17,3 +17,18 @@
 <%= link_to "edit", edit_job_path %><br>
 <%= link_to "all jobs by #{@job.company.name}", company_jobs_path(@job.company) %><br>
 <%= link_to "all jobs", jobs_path %>
+
+<% if institution_signed_in? && @job.at_least_one_match_for_institution(current_institution) %>
+  <h2>Matching Candidates</h2>
+  <% @job.at_least_one_match_for_institution(current_institution).each do |seeker| %>
+    <li>
+      <%= link_to seeker.name, institution_seeker_path(seeker) %>
+      <% seeker.language_list.each do |lang| %>
+        <span class="tag"><%= lang %></span>
+      <% end %>
+      <% seeker.skill_list.each do |skill| %>
+        <span class="tag"><%= skill %></span>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>
