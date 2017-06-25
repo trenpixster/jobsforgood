@@ -1,6 +1,9 @@
-<h2>Jobs:</h2>
-
-<%= link_to 'Clear filters', jobs_path if any_filters_applied? %>
+<% if any_filters_applied? %>
+  <a class="ui labeled icon button" href="<%= jobs_path %>">
+    <i class="erase icon"></i>
+    Clear filters
+  </a>
+<% end %>
 
 <ul>
   <% @jobs.each do |job| %>
@@ -11,11 +14,11 @@
       -
 
       <% job.language_list.each do |lang| %>
-        <%= link_to lang, request.query_parameters.merge(language: lang), class: 'tag' %>
+        <%= link_to lang, request.query_parameters.merge(language: lang), class: 'ui label' %>
       <% end %>
 
       <% job.skill_list.each do |skill| %>
-        <%= link_to skill, request.query_parameters.merge(skill: skill), class: 'tag' %>
+        <%= link_to skill, request.query_parameters.merge(skill: skill), class: 'ui label' %>
       <% end %>
     </li>
   <% end %>
