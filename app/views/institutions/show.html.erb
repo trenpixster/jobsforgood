@@ -1,13 +1,19 @@
 <%= link_to 'log out', destroy_institution_session_path, method: :delete %> <br>
-<br>
-<%= current_institution.inspect %><br>
-<br>
-<%= link_to 'edit', edit_institution_registration_path %> <br>
+<h1><%= current_institution.name %></h1>
+<p><%= link_to 'edit', edit_institution_registration_path %></p>
 
 Job seekers:<br>
 <ul>
   <% current_institution.seekers.each do |seeker| %>
-    <li><%= link_to seeker.name, institution_seeker_path(seeker) %></li>
+    <li>
+      <%= link_to seeker.name, institution_seeker_path(seeker) %>
+      <% seeker.language_list.each do |lang| %>
+        <span class="tag"><%= lang %></span>
+      <% end %>
+      <% seeker.skill_list.each do |skill| %>
+        <span class="tag"><%= skill %></span>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 <br>
