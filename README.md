@@ -6,5 +6,5 @@
 - [x] institutions can create seekers
 - [x] companies can add skills for jobs
 - [x] institutions can add skills for seekers
-- [ ] tag listing pages
+- [x] tag listing pages
 - [ ] make it look good

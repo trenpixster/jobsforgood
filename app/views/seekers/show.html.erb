@@ -14,4 +14,19 @@
   <% end %>
 </p>
 
-<%= link_to "edit", edit_institution_seeker_path(@seeker) %><br>
+<p><%= link_to "edit", edit_institution_seeker_path(@seeker) %></p>
+
+<% if institution_signed_in? && @seeker.matching_jobs.any? %>
+  <h2>Matching Jobs</h2>
+  <% @seeker.matching_jobs.each do |job| %>
+    <li>
+      <%= link_to job.title, job %>
+      <% job.language_list.each do |lang| %>
+        <span class="tag"><%= lang %></span>
+      <% end %>
+      <% job.skill_list.each do |skill| %>
+        <span class="tag"><%= skill %></span>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>
