@@ -33,6 +33,7 @@
 <% if institution_signed_in? && @job.at_least_one_match_for_institution(current_institution) %>
     <div class="ui container segment">
         <h2>Matching Candidates</h2>
+        <p>Presented candidates match on skills and language. If none are defined, all candidates are elegible.</p>
         <% @job.at_least_one_match_for_institution(current_institution).each do |seeker| %>
             <div class="ui fluid card">
                 <div class="content">
