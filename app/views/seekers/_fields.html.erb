@@ -20,12 +20,16 @@
 
 <div class="field">
   <%= f.label      :language_list %><br />
-  <%= f.text_field :language_list, value: f.object.language_list.to_s %>
+  <%= f.text_field :language_list, value: f.object.language_list.to_s,
+    class: 'autocomplete', autocomplete: 'off',
+    data: { list: all_languages, minchars: 1 } %>
 </div>
 
 <div class="field">
   <%= f.label      :skill_list %><br />
-  <%= f.text_field :skill_list, value: f.object.skill_list.to_s %>
+  <%= f.text_field :skill_list, value: f.object.skill_list.to_s,
+    class: 'autocomplete', autocomplete: 'off',
+    data: { list: all_skills, minchars: 1 } %>
 </div>
 
 <div class="actions">

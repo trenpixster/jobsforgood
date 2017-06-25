@@ -13,3 +13,24 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require awesomplete.min.js
+
+setTimeout(function() {
+  var elements = document.querySelectorAll('input.autocomplete');
+  Array.prototype.forEach.call(elements, function(el, i){
+    new Awesomplete(el, {
+      filter: function(text, input) {
+        return Awesomplete.FILTER_CONTAINS(text, input.match(/[^,]*$/)[0]);
+      },
+
+      item: function(text, input) {
+        return Awesomplete.ITEM(text, input.match(/[^,]*$/)[0]);
+      },
+
+      replace: function(text) {
+        var before = this.input.value.match(/^.+,\s*|/)[0];
+        this.input.value = before + text + ", ";
+      }
+    });
+  });
+}, 1000);
