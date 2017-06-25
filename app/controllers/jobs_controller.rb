@@ -1,10 +1,9 @@
 class JobsController < ApplicationController
   def index
-    if params[:company_id]
-      @jobs = Job.where(company_id: params[:company_id]).all
-    else
-      @jobs = Job.all
-    end
+    @jobs = Job.all
+    @jobs = @jobs.tagged_with(params[:language]) if params[:language]
+    @jobs = @jobs.tagged_with(params[:skill]) if params[:skill]
+    @jobs = @jobs.where(company_id: params[:company_id]) if params[:company_id]
   end
 
   def new
@@ -21,7 +20,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = current_company.jobs.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def edit

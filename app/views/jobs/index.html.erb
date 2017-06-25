@@ -1,6 +1,22 @@
 <h2>Jobs:</h2>
+
+<%= link_to 'Clear filters', jobs_path if any_filters_applied? %>
+
 <ul>
   <% @jobs.each do |job| %>
-    <li><%= link_to job.title, job %></li>
+    <li>
+      <%= link_to job.title, job %>
+      @
+      <%= link_to job.company.name, request.query_parameters.merge(company_id: job.company_id) %>
+      -
+
+      <% job.language_list.each do |lang| %>
+        <%= link_to lang, request.query_parameters.merge(language: lang), class: 'tag' %>
+      <% end %>
+
+      <% job.skill_list.each do |skill| %>
+        <%= link_to skill, request.query_parameters.merge(skill: skill), class: 'tag' %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
