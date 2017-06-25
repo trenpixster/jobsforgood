@@ -1,4 +1,3 @@
-<%= link_to 'log out', destroy_institution_session_path, method: :delete %> <br>
 <h1><%= current_institution.name %></h1>
 <p><%= link_to 'edit', edit_institution_registration_path %></p>
 
@@ -16,5 +15,3 @@ Job seekers:<br>
     </li>
   <% end %>
 </ul>
-<br>
-<%= link_to '+ seeker', new_institution_seeker_path %>

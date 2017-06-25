@@ -1,6 +1,5 @@
-<%= link_to 'log out', destroy_company_session_path, method: :delete %><br>
 <h1><%= current_company.name %></h1>
-<%= image_tag current_company.logo_url %>
+<%= image_tag current_company.logo_url, height: 140 %>
 <p><%= link_to current_company.url, current_company.url %></p>
 <p><%= current_company.description %></p>
 <p>Email: <%= current_company.email %></p>
@@ -14,5 +13,3 @@ Jobs:<br>
     <li><%= link_to job.title, job %></li>
   <% end %>
 </ul>
-<br>
-<%= link_to '+ job', new_job_path %>

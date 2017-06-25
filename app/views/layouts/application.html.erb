@@ -31,13 +31,23 @@
 
         <div class="ui fixed inverted menu">
             <div class="ui container">
-                <a href="/" class="header item">
+                <a href="/jobs" class="header item">
                     Jobs for Good
                 </a>
-                <a href="/" class="item">Home</a>
+                <% if institution_signed_in? %>
+                  <%= link_to current_institution.name, institution_path, class: 'item' %>
+                  <%= link_to 'Add Job Seeker', new_institution_seeker_path, class: 'item' %>
+                <% elsif company_signed_in? %>
+                  <%= link_to current_company.name, company_path, class: 'item' %>
+                  <%= link_to 'Add Job', new_job_path, class: 'item' %>
+                <% end %>
                 <div class="right item">
+                  <% if signed_in? %>
+                    <%= link_to 'Sign Out', sign_out_path, method: :delete %> <br>
+                  <% else %>
                     <a href="<%= new_institution_session_path %>" class="ui inverted button">Institutions Sign In</a>
                     <a href="<%= new_company_session_path %>" class="ui inverted button" style="margin-left: 0.5em;">Companies Sign In</a>
+                  <% end %>
                 </div>
             </div>
         </div>
