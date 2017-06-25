@@ -1,25 +1,50 @@
-<% if any_filters_applied? %>
-  <a class="ui labeled icon button" href="<%= jobs_path %>">
-    <i class="erase icon"></i>
-    Clear filters
-  </a>
+<% content_for :title do  %>
+    <h1 class="ui header">
+        All jobs
+        <div class="sub header">
+            All available job postings
+        </div>
+    </h1>
 <% end %>
 
-<ul>
-  <% @jobs.each do |job| %>
-    <li>
-      <%= link_to job.title, job %>
-      @
-      <%= link_to job.company.name, request.query_parameters.merge(company_id: job.company_id) %>
-      -
+<div class="ui container segment">
+    <%= link_to 'Clear filters', jobs_path, class: 'ui button' if any_filters_applied? %>
 
-      <% job.language_list.each do |lang| %>
-        <%= link_to lang, request.query_parameters.merge(language: lang), class: 'ui label' %>
-      <% end %>
+    <% @jobs.each do |job| %>
+        <div class="ui fluid card">
+            <div class="content">
+                <div class="header"><%= link_to job.title, job %></div>
+                <div class="meta">
+                    <%= link_to job.company.name, request.query_parameters.merge(company_id: job.company_id) %>
+                </div>
+                <div class="description">
+                    <%= job.description %>
+                </div>
+            </div>
+            <div class="extra content">
+                <span class="left floated">
+                    <i class="check icon"></i>
+                    <%= rand(250) %> Vacancies
+                </span>
+                <span style="margin-left: 1em;" class="right floated">
+                    <i class="map icon"></i>
+                    <%= job.city %>
+                </span>
 
-      <% job.skill_list.each do |skill| %>
-        <%= link_to skill, request.query_parameters.merge(skill: skill), class: 'ui label' %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+                <span style="margin-left: 1em;" class="right floated">
+                    <i class="write icon"></i>
+                    <% job.language_list.each do |l| %>
+                        <%= link_to l, request.query_parameters.merge(language: l), class: 'tag' %>
+                    <% end %>
+                </span>
+
+                <span class="right floated">
+                    <i class="write icon"></i>
+                    <% job.skill_list.each do |s| %>
+                        <%= link_to s, request.query_parameters.merge(skill: s), class: 'tag' %>
+                    <% end %>
+                </span>
+            </div>
+        </div>
+    <% end %>
+</div>

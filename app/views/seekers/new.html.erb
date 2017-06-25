@@ -1,5 +1,14 @@
-<h2>Create new job seeker for <%= current_institution.name %></h2>
-
-<%= form_for @seeker, url: institution_seekers_path do |f| %>
-  <%= render 'fields', f: f %>
+<% content_for :title do  %>
+    <h1 class="ui header">
+        New Job Seeker at <%= current_institution.name %>
+        <div class="sub header">
+            Register a new job seeker
+        </div>
+    </h1>
 <% end %>
+
+<div class="ui container segment fluid">
+    <%= form_for @seeker, url: institution_seekers_path, html: {class: 'ui large form'} do |f| %>
+        <%= render 'fields', f: f %>
+    <% end %>
+</div>

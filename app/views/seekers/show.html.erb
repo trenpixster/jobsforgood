@@ -1,32 +1,59 @@
-<h1><%= @seeker.name %></h1>
-<p><%= @seeker.city %>, <%= @seeker.country %></p>
-<p>Phone: <%= @seeker.phone %></p>
-
-<p>
-  Languages:
-  <% @seeker.language_list.each do |lang| %>
-    <span class="tag"><%= lang %></span>
-  <% end %>
-</p>
-<p>
-  Skills: <% @seeker.skill_list.each do |skill| %>
-    <span class="tag"><%= skill %></span>
-  <% end %>
-</p>
-
-<p><%= link_to "edit", edit_institution_seeker_path(@seeker) %></p>
-
-<% if institution_signed_in? && @seeker.matching_jobs.any? %>
-  <h2>Matching Jobs</h2>
-  <% @seeker.matching_jobs.each do |job| %>
-    <li>
-      <%= link_to job.title, job %>
-      <% job.language_list.each do |lang| %>
-        <span class="tag"><%= lang %></span>
-      <% end %>
-      <% job.skill_list.each do |skill| %>
-        <span class="tag"><%= skill %></span>
-      <% end %>
-    </li>
-  <% end %>
+<% content_for :title do  %>
+    <h1 class="ui header">
+        <%= @seeker.name %>
+        <div class="sub header">
+            <%= @seeker.city %>, <%= @seeker.country %>
+        </div>
+    </h1>
 <% end %>
+
+<div class="ui container segment">
+    <h2>Details</h2>
+    <p>Phone: <%= @seeker.phone %></p>
+
+    <p>
+        Languages:
+        <% @seeker.language_list.each do |lang| %>
+            <span class="ui label red"><%= lang %></span>
+        <% end %>
+    </p>
+    <p>
+        Skills: <% @seeker.skill_list.each do |skill| %>
+        <span class="ui label blue"><%= skill %></span>
+        <% end %>
+    </p>
+
+    <p><%= link_to "Edit details", edit_institution_seeker_path(@seeker), class: 'ui button' %></p>
+</div>
+
+<div class="ui container segment">
+    <% if institution_signed_in? && @seeker.matching_jobs.any? %>
+        <h2>Matching Jobs</h2>
+        <% @seeker.matching_jobs.each do |job| %>
+        <div class="ui fluid card">
+            <div class="content">
+                <div class="header"><%= link_to job.title, job %></div>
+                <div class="meta">Created <%= time_ago_in_words job.created_at %> ago</div>
+                <div class="description">
+                    <%= job.description %>
+                </div>
+            </div>
+            <div class="extra content">
+                <span class="left floated">
+                    <i class="check icon"></i>
+                    <%= rand(250) %> Vacancies
+                </span>
+                <span style="margin-left: 1em;" class="right floated">
+                    <i class="map icon"></i>
+                    <%= job.city %>
+                </span>
+
+                <span class="right floated">
+                    <i class="write icon"></i>
+                    <%= job.skill_list.join(", ") %>
+                </span>
+            </div>
+        </div>
+        <% end %>
+    <% end %>
+</div>

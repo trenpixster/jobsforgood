@@ -29,11 +29,32 @@
                     No active job postings.
                 </p>
             <% else %>
-                <ul>
-                    <% current_company.jobs.each do |job| %>
-                        <li><%= link_to job.title, job %></li>
-                    <% end %>
-                </ul>
+                <% current_company.jobs.each do |job| %>
+                    <div class="ui fluid card">
+                        <div class="content">
+                            <div class="header"><%= link_to job.title, job %></div>
+                            <div class="meta">Created <%= time_ago_in_words job.created_at %> ago</div>
+                            <div class="description">
+                                <%= job.description %>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <span class="left floated">
+                                <i class="check icon"></i>
+                                <%= rand(250) %> Vacancies
+                            </span>
+                            <span style="margin-left: 1em;" class="right floated">
+                                <i class="map icon"></i>
+                                <%= job.city %>
+                            </span>
+
+                            <span class="right floated">
+                                <i class="write icon"></i>
+                                <%= job.skill_list.join(", ") %>
+                            </span>
+                        </div>
+                    </div>
+                <% end %>
             <% end %>
             <%= link_to 'Add a job', new_job_path, class: 'ui button primary' %>
         </div>
