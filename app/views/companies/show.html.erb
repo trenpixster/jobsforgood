@@ -11,7 +11,7 @@
     <div class="ui four wide column">
         <div class="ui segment">
             <h2>Company info</h2>
-            <%= image_tag current_company.logo_url %>
+            <%= image_tag current_company.logo_url, width: '100%' %>
             <p><%= link_to current_company.url, current_company.url %></p>
             <p><%= current_company.description %></p>
             <p>Email: <%= current_company.email %></p>
